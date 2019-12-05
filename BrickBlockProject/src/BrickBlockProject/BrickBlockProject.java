@@ -1,38 +1,46 @@
 /*
- * Jacob White
- * CSC-251-0001
- * 10/31/2019
- * This program uses multiple classes to get data about length,width,height,area
- * and volume
+ *
+ *
+ *
  */
 package BrickBlockProject;
 import java.util.Scanner; 
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 public class BrickBlockProject {
 
 
     public static void main(String[] args) {
         DecimalFormat df = new DecimalFormat("0.00");
-        double length;
-        double width;
-        double height;
+        
         double brickP = 8.15625;
         
         Scanner k = new Scanner(System.in);
         
-        System.out.println("Enter the following measurements of the wall in ft: ");
+        welcome();
+        JOptionPane.showMessageDialog(null, "Enter the measurements of the wall in feet. ");
+        double length = Double.parseDouble(JOptionPane.showInputDialog
+        ("Enter the Length: "));
         
-        System.out.print("Length: ");
-        length = k.nextDouble();
+        double width = Double.parseDouble(JOptionPane.showInputDialog
+        ("Enter the Width: "));
         
-        System.out.print("Width: ");
-        width = k.nextDouble();
+        double height = Double.parseDouble(JOptionPane.showInputDialog
+        ("Enter the Height: "));
         
-        System.out.print("Height: ");
-        height = k.nextDouble();
         
-        Cube myCube =
-                new Cube(length, width, height);
+        BrickAmt myCube =
+                new BrickAmt(length, width, height);
+        
+        
+                JOptionPane.showMessageDialog(null, "Here are the Wall's Properties. "+
+                "\n\nLength: "+ myCube.getLength()
+                        +" Ft."+"\nWidth: "+ myCube.getWidth()
+                +" Ft."+"\nHeight: "+ myCube.getHeight()
+                        +" Ft."+"\nWall Area: "+ myCube.getArea()
+                +" Sq Ft."+"\nBrick Amount: "+(df.format(myCube.getBrickAmt()))+
+                        "\nBrick Cost: $"+(df.format(myCube.getCost())));
+                goodbye();
         
         System.out.println("Here are the Wall's properties.");
         
@@ -42,6 +50,14 @@ public class BrickBlockProject {
         System.out.println("Wall Area: " + myCube.getArea()+" Sq Ft.");
         System.out.println("Brick Amount: "+ (df.format(myCube.getBrickAmt())));
         System.out.println("Brick Cost: $"+ (df.format(myCube.getCost())));
+         
+
+    }
+    public static void welcome(){
+        JOptionPane.showMessageDialog(null, "Welcome to the Brick Block Program! ");
+    }
+    public static void goodbye(){
+        JOptionPane.showMessageDialog(null, "Thank you for using the program. ");
     }
     
 }

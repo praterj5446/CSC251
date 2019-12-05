@@ -1,16 +1,16 @@
 
 /**
  *
- * This class holds data about a rectangle
+ * This class holds data about brick cost
  * 
  */
 package BrickBlockProject;
-public class Rectangle {
+public class Cost {
     private double length;
     private double width;
     private double height;
     
-    public Rectangle(double len, double w, double h)
+    public Cost(double len, double w, double h)
     {
         length = len;
         width = w;
