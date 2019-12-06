@@ -14,6 +14,7 @@ public class BrickBlockProject {
         DecimalFormat df = new DecimalFormat("0.00");
         
         double brickP = 8.15625;
+        double doorsOnWall = 0;
         
         Scanner k = new Scanner(System.in);
         
@@ -41,7 +42,7 @@ public class BrickBlockProject {
                 double doorHeight =
                         Double.parseDouble(JOptionPane.showInputDialog("Height: "));
                 double doorArea = doorWidth * doorHeight;
-            
+            doorsOnWall += doorArea;
         }
             
             
@@ -49,7 +50,7 @@ public class BrickBlockProject {
         
         
         BrickAmt myCube =
-                new BrickAmt(length, width, height);
+                new BrickAmt(length, width, height, doorsOnWall);
         
         
                 JOptionPane.showMessageDialog(null, "Here are the Wall's Properties. "+
@@ -63,6 +64,7 @@ public class BrickBlockProject {
         
         System.out.println("Here are the Wall's properties.");
         
+        
         System.out.println("Length: " + myCube.getLength()+" Ft.");
         System.out.println("Width: " + myCube.getWidth()+" Ft.");
         System.out.println("Height: " + myCube.getHeight()+" Ft.");
@@ -70,7 +72,7 @@ public class BrickBlockProject {
         System.out.println("Brick Amount: "+ (df.format(myCube.getBrickAmt())));
         System.out.println("Brick Cost: $"+ (df.format(myCube.getCost())));
          
-
+//what do u need to 
     }
     public static void welcome(){
         JOptionPane.showMessageDialog(null, "Welcome to the Brick Block Program! ");

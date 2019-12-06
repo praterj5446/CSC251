@@ -5,16 +5,18 @@
  * 
  */
 package BrickBlockProject;
-public class Cost {
+public class Cost{
     private double length;
     private double width;
     private double height;
+    private double doorsOnWall;
     
-    public Cost(double len, double w, double h)
+    public Cost(double len, double w, double h, double g)
     {
         length = len;
         width = w;
         height = h;
+        doorsOnWall = g;
     }
         
     public void setLength(double len){
@@ -38,7 +40,13 @@ public class Cost {
     public double getHeight(){
         return height;
     }
+    
     public double getArea(){
-        return width * height;
+        return (width * height) - doorsOnWall;
+    }
+    public double getDoorsOnWall(double g){
+        doorsOnWall = g;
+        return doorsOnWall;
+        
     }
 }
