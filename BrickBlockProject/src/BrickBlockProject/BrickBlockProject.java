@@ -28,6 +28,25 @@ public class BrickBlockProject {
         double height = Double.parseDouble(JOptionPane.showInputDialog
         ("Enter the Height: "));
         
+        String yesNo = JOptionPane.showInputDialog("Are there any doors in your wall? 'Yes' or 'No'");
+        if (yesNo.equalsIgnoreCase("yes")){
+            int doors = 
+                    Integer.parseInt(JOptionPane.showInputDialog("How many doors are there in your wall? "));
+            for (int i=0; i < doors; i++){
+                JOptionPane.showMessageDialog(null, "Enter the doors measurements.");
+                double doorLength = 
+                        Double.parseDouble(JOptionPane.showInputDialog("Length: "));
+                double doorWidth =
+                        Double.parseDouble(JOptionPane.showInputDialog("Width: "));
+                double doorHeight =
+                        Double.parseDouble(JOptionPane.showInputDialog("Height: "));
+                double doorArea = doorWidth * doorHeight;
+            
+        }
+            
+            
+        }
+        
         
         BrickAmt myCube =
                 new BrickAmt(length, width, height);
