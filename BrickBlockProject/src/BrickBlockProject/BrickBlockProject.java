@@ -1,6 +1,7 @@
 /*
- *
- *
+ * Chris, Jessica, Jacob CSC-251-0001
+ * GROUP 4
+ * Brick block project
  *
  */
 package BrickBlockProject;
@@ -11,10 +12,16 @@ public class BrickBlockProject {
 
 
     public static void main(String[] args) {
+        
+        int i = 1;
+        while(i>0){
         DecimalFormat df = new DecimalFormat("0.00");
         
         double brickP = 8.15625;
         double doorsOnWall = 0;
+        double cement = 2.5;
+        
+        
         
         Scanner k = new Scanner(System.in);
         
@@ -22,25 +29,53 @@ public class BrickBlockProject {
         JOptionPane.showMessageDialog(null, "Enter the measurements of the wall in feet. ");
         double length = Double.parseDouble(JOptionPane.showInputDialog
         ("Enter the Length: "));
+        while (length < 0){
+            length =
+                    Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
         
         double width = Double.parseDouble(JOptionPane.showInputDialog
         ("Enter the Width: "));
+        while (width < 0){
+            width =
+                    Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
         
         double height = Double.parseDouble(JOptionPane.showInputDialog
         ("Enter the Height: "));
+        while (height < 0){
+            height =
+                    Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
         
-        String yesNo = JOptionPane.showInputDialog("Are there any doors in your wall? 'Yes' or 'No'");
+        String yesNo = JOptionPane.showInputDialog("Are there any doors or windows in your wall? 'Yes' or 'No'");
         if (yesNo.equalsIgnoreCase("yes")){
             int doors = 
-                    Integer.parseInt(JOptionPane.showInputDialog("How many doors are there in your wall? "));
-            for (int i=0; i < doors; i++){
-                JOptionPane.showMessageDialog(null, "Enter the doors measurements.");
+                    Integer.parseInt(JOptionPane.showInputDialog("How many doors or windows are there in your wall? "));
+            while (doors< 0){
+            doors =
+                    Integer.parseInt(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
+            for (int i1=0; i1 < doors; i1++){
+                JOptionPane.showMessageDialog(null, "Enter the doors/windows measurements.");
                 double doorLength = 
                         Double.parseDouble(JOptionPane.showInputDialog("Length: "));
+                while (doorLength < 0){
+            doorLength =
+                    Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
                 double doorWidth =
                         Double.parseDouble(JOptionPane.showInputDialog("Width: "));
+                while (doorWidth < 0){
+            doorWidth =
+                    Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
                 double doorHeight =
                         Double.parseDouble(JOptionPane.showInputDialog("Height: "));
+                while (doorLength < 0){
+            doorHeight =
+                    Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number: "));
+        }
                 double doorArea = doorWidth * doorHeight;
             doorsOnWall += doorArea;
         }
@@ -51,6 +86,8 @@ public class BrickBlockProject {
         
         BrickAmt myCube =
                 new BrickAmt(length, width, height, doorsOnWall);
+        double cementCost = cement * myCube.getArea();
+        double total = cementCost + myCube.getCost();
         
         
                 JOptionPane.showMessageDialog(null, "Here are the Wall's Properties. "+
@@ -58,8 +95,10 @@ public class BrickBlockProject {
                         +" Ft."+"\nWidth: "+ myCube.getWidth()
                 +" Ft."+"\nHeight: "+ myCube.getHeight()
                         +" Ft."+"\nWall Area: "+ myCube.getArea()
-                +" Sq Ft."+"\nBrick Amount: "+(df.format(myCube.getBrickAmt()))+
-                        "\nBrick Cost: $"+(df.format(myCube.getCost())));
+                +" Sq Ft."+"\nBrick Amount: "+(Math.ceil(myCube.getBrickAmt()))+
+                        "\nBrick Cost: $"+(df.format(myCube.getCost()))+
+                        "\nCement Cost: $"+(df.format(cementCost))+
+                        "\n\nTotal Cost: $"+(df.format(total)));
                 goodbye();
         
         System.out.println("Here are the Wall's properties.");
@@ -71,6 +110,15 @@ public class BrickBlockProject {
         System.out.println("Wall Area: " + myCube.getArea()+" Sq Ft.");
         System.out.println("Brick Amount: "+ (df.format(myCube.getBrickAmt())));
         System.out.println("Brick Cost: $"+ (df.format(myCube.getCost())));
+        
+        String yesNo2 =                
+                (JOptionPane.showInputDialog("Would you like to run the program again? "
+                        + "Enter 'yes' or 'no"));
+        if (yesNo2.equalsIgnoreCase("no")){
+            break;
+        }
+        } 
+        
          
 //what do u need to 
     }
